@@ -377,3 +377,14 @@ input {
   border-radius: 2px;
   border: 1px solid #999999;
 }
+
+.pull-request-info--narrow {
+  .pr-comments {
+    margin-left: 1rem;
+  }
+
+  .pr-status {
+    margin-right: 0;    
+    margin-left: 0.2rem;
+  } 
+}
