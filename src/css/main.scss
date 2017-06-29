@@ -385,10 +385,13 @@ input {
 
   .pr-status {
     margin-right: 0;    
-    margin-left: 0;
   } 
 
   .pull-request-repo {
     margin-right: 1rem;
+  }
+
+  .pull-request-data {
+    display: inline-block;
   }
 }

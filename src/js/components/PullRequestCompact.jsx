@@ -43,20 +43,22 @@ export default class PullRequestCompact extends React.Component {
           <a className="pull-request-repo" target="_blank" href={pr.repoUrl}>
             <img src="images/repo.svg" alt="Repository" /> {pr.repo}
           </a>
-          <img src="images/git-pull-request.svg" alt="Pull request" />
-          &nbsp;
-          <a className="pull-request-title" target="_blank" href={pr.url}>{pr.title}</a>
-          <span className="pull-request-number">#{pr.number}</span>
+          <div className="pull-request-data">
+            <img src="images/git-pull-request.svg" alt="Pull request" />
+            &nbsp;
+            <a className="pull-request-title" target="_blank" href={pr.url}>{pr.title}</a>
+            <span className="pull-request-number">#{pr.number}</span>
 
-          <Status
-            status={pr.status}
-          />
-          <Comments
-            comments={pr.comments}
-            positiveCommentCount={pr.positiveComments}
-            negativeCommentCount={pr.negativeComments}
-            reactions={pr.reactions}
-          />
+            <Status
+              status={pr.status}
+            />
+            <Comments
+              comments={pr.comments}
+              positiveCommentCount={pr.positiveComments}
+              negativeCommentCount={pr.negativeComments}
+              reactions={pr.reactions}
+            />
+          </div>
           <div className="pull-request-created" title={this.formatTime('Created', pr.created)}>
             Opened by {pr.user.username} {this.formatRelativeTime(pr.created)}
           </div>
