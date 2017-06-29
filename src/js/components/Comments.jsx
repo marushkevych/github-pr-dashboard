@@ -54,7 +54,7 @@ function renderOtherReactions(reactions) {
 }
 
 export function Comments(props) {
-  const count = props.comments.length;
+  const count = props.comments.length + props.reviewComments.length;
   const comments = props.comments;
   const reactions = props.reactions;
 
@@ -89,5 +89,6 @@ Comments.propTypes = {
   positiveCommentCount: React.PropTypes.number,
   negativeCommentCount: React.PropTypes.number,
   comments: React.PropTypes.array,
+  reviewComments: React.PropTypes.array,
   reactions: React.PropTypes.array
 };

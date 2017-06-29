@@ -6,6 +6,7 @@
   "repository": "joeattardi/github-pr-dashboard",
   "scripts": {
     "start": "node server/index.js",
+    "debug": "node --inspect server/index.js",
     "dev-build": "webpack",
     "build": "webpack -p",
     "lint": "eslint src test server",
