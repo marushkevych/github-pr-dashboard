@@ -54,6 +54,7 @@ export default class PullRequestCompact extends React.Component {
             />
             <Comments
               comments={pr.comments}
+              reviewComments={pr.reviewComments}
               positiveCommentCount={pr.positiveComments}
               negativeCommentCount={pr.negativeComments}
               reactions={pr.reactions}

@@ -46,7 +46,9 @@ function getPullRequests(repos) {
       created: pr.created_at,
       updated: pr.updated_at,
       comments_url: pr.comments_url,
-      statuses_url: pr.statuses_url
+      statuses_url: pr.statuses_url,
+      review_comments_url: pr.review_comments_url
+
     }));
   });
 }
@@ -62,6 +64,17 @@ function getPullRequestComments(pr) {
     pr.negativeComments = emoji.countNegativeComments(comments.data);
 
     delete pr.comments_url;
+  });
+}
+
+function getReviewComments(pr) {
+  return apiCall(pr.review_comments_url).then(comments => {
+    pr.reviewComments = comments.data.map(comment => ({
+      body: comment.body,
+      user: comment.user.login
+    }));
+
+    delete pr.review_comments_url;
   });
 }
 
@@ -104,6 +117,10 @@ exports.loadPullRequests = function loadPullRequests() {
   return getPullRequests(repos).then(prs => {
     const commentsPromises = prs.map(pr => getPullRequestComments(pr));
     return Promise.all(commentsPromises).then(() => prs);
+  })
+  .then(prs => {
+    const reviewCommentsPromises = prs.map(pr => getReviewComments(pr));
+    return Promise.all(reviewCommentsPromises).then(() => prs);
   })
   .then(prs => {
     const reactionsPromises = prs.map(pr => getPullRequestReactions(pr));
