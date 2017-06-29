@@ -40,13 +40,13 @@ export default class PullRequestCompact extends React.Component {
       <div className={className}>
         <UserPhoto size={50} user={pr.user} />
         <div className="pull-request-info pull-request-info--narrow">
-          <a className="pull-request-title" target="_blank" href={pr.repoUrl}>
+          <a className="pull-request-repo" target="_blank" href={pr.repoUrl}>
             <img src="images/repo.svg" alt="Repository" /> {pr.repo}
           </a>
-          <span className="pull-request-number">#{pr.number}</span>
           <img src="images/git-pull-request.svg" alt="Pull request" />
           &nbsp;
-          <a target="_blank" href={pr.url}>{pr.title}</a>
+          <a className="pull-request-title" target="_blank" href={pr.url}>{pr.title}</a>
+          <span className="pull-request-number">#{pr.number}</span>
 
           <Status
             status={pr.status}

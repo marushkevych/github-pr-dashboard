@@ -385,6 +385,10 @@ input {
 
   .pr-status {
     margin-right: 0;    
-    margin-left: 0.2rem;
+    margin-left: 0;
   } 
+
+  .pull-request-repo {
+    margin-right: 1rem;
+  }
 }
