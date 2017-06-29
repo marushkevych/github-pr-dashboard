@@ -34,10 +34,10 @@ function sortPullRequests(pullRequests, sortByRepo) {
   return pullRequests.sort((a, b) => {
     if (sortByRepo) {
       if (a.repoUrl < b.repoUrl) {
-        return 1;
+        return -1;
       }
       if (a.repoUrl > b.repoUrl) {
-        return -1;
+        return 1;
       }
     }
     if (a.updated < b.updated) {
