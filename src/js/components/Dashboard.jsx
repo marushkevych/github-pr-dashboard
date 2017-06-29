@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PullRequest from './PullRequest';
+import PullRequestCompact from './PullRequestCompact';
 import LoadingOverlay from './LoadingOverlay';
 import ErrorMessage from './ErrorMessage';
 import Toolbar from './Toolbar';
@@ -41,7 +41,7 @@ class Main extends React.Component {
         {this.renderLoading()}
         {this.props.pullRequests.map(pr =>
           <div key={pr.id}>
-            <PullRequest key={pr.id} pullRequest={pr} />
+            <PullRequestCompact key={pr.id} pullRequest={pr} />
           </div>
         )}
       </div>

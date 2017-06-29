@@ -31,13 +31,13 @@ export function reposReducer(state = [], action) {
 }
 
 function sortPullRequests(pullRequests, sortByRepo) {
-  return [...pullRequests].sort((a, b) => {
+  return pullRequests.sort((a, b) => {
     if (sortByRepo) {
       if (a.repoUrl < b.repoUrl) {
-        return 1;
+        return -1;
       }
       if (a.repoUrl > b.repoUrl) {
-        return -1;
+        return 1;
       }
     }
     if (a.updated < b.updated) {
@@ -56,7 +56,7 @@ export function pullRequestsReducer(state = [], action) {
       return sortPullRequests(action.pullRequests, action.sortOptions.sortByRepo);
 
     case ActionTypes.SORT:
-      return sortPullRequests(state, action.sortOptions.sortByRepo);
+      return sortPullRequests([...state], action.sortOptions.sortByRepo);
 
     case ActionTypes.UPDATE_PULL_REQUEST:
       return state.map(pullRequest => {
